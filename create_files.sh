@@ -1,0 +1,1 @@
+touch manifest.json content.js popup.html popup.js inject.js

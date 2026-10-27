@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "VK Chat Exporter (debug)",
+  "version": "1.1",
+  "description": "Экспорт истории чата ВК без API",
+  "permissions": ["downloads", "storage", "webNavigation"],
+  "host_permissions": [
+    "*://*.vk.com/*",
+    "*://*.vk.ru/*",
+    "*://*.vk.me/*",
+    "*://*.userapi.com/*",
+    "*://*.vk-cdn.net/*",
+    "*://*.mycdn.me/*",
+    "*://api.vk.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.vk.com/*", "*://*.vk.ru/*"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["*://*.vk.com/*", "*://*.vk.ru/*"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Экспорт чата ВК"
+  }
+}
